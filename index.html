@@ -77,6 +77,31 @@ header{position:sticky;top:0;z-index:40;background:color-mix(in srgb,var(--bg) 8
 .quotes{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:28px}
 .quote{padding-top:22px;border-top:4px solid var(--accent)}
 .quote blockquote{font-size:1.12rem;margin-bottom:14px}
+.visual.photo{margin:0}.visual.photo img{width:100%;aspect-ratio:4/5;object-fit:cover;border-radius:var(--r);display:block}
+.visual.photo figcaption,.gallery figcaption{font-size:.78rem;color:var(--muted);margin-top:6px}
+.visual.photo a,.gallery figcaption a{color:inherit}
+.gallery .grid{display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:220px;gap:14px}
+.gallery figure{margin:0;display:flex;flex-direction:column;min-height:0}
+.gallery figure img{flex:1;min-height:0;width:100%;object-fit:cover;border-radius:var(--r)}
+.gallery figure.big{grid-column:span 2;grid-row:span 2}
+.gallery figure.wide{grid-column:span 2}
+.gallery .cap{font-weight:600;font-size:.95rem;margin-top:8px;color:var(--ink)}
+@media(max-width:860px){.gallery .grid{grid-template-columns:repeat(2,1fr);grid-auto-rows:180px}}
+@media(max-width:520px){.gallery .grid{grid-template-columns:1fr;grid-auto-rows:240px}.gallery figure.big,.gallery figure.wide{grid-column:auto;grid-row:auto}}
+.menu{background:var(--surface)}
+.menu details{border-top:2px solid var(--ink)}
+.menu details:last-of-type{border-bottom:2px solid var(--ink)}
+.menu summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:baseline;gap:16px;padding:20px 0;font-family:var(--display);font-size:clamp(1.6rem,3vw,2.2rem);letter-spacing:var(--menu-track,.02em)}
+.menu summary::-webkit-details-marker{display:none}
+.menu summary::after{content:'+';color:var(--accent);font-family:var(--body);font-weight:300}
+.menu details[open] summary::after{content:'–'}
+.menu .cat-note{color:var(--muted);margin:-8px 0 16px;font-size:.95rem}
+.menu ul{list-style:none;display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,420px),1fr));column-gap:48px;padding-bottom:28px}
+.menu li{padding:12px 0;border-bottom:1px dashed var(--line)}
+.menu .dish{display:flex;justify-content:space-between;gap:16px;font-weight:700}
+.menu .price{font-variant-numeric:tabular-nums;white-space:nowrap}
+.menu li p{color:var(--muted);font-size:.95rem;max-width:46ch}
+.menu .fine{color:var(--muted);font-size:.9rem;margin-top:24px}
 .quote figcaption{color:var(--muted);font-size:.95rem}
 
 .contact .wrap{display:grid;grid-template-columns:.9fr 1.1fr;gap:48px;align-items:stretch}
@@ -108,7 +133,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
 <header>
   <div class="wrap nav">
     <a class="logo" href="#"><svg class="mark" viewBox="0 0 34 34" aria-hidden="true"><rect width="34" height="34" rx="8" fill="var(--accent)"/><path d="M5 26l9-14 4 6 4-8 7 16z" fill="var(--accent-ink)"/></svg><span>Cañadón de la Palma</span></a>
-    <nav aria-label="Principal"><ul><li><a href="#servicios">Servicios</a></li><li><a href="#lugar">El lugar</a></li><li><a href="#opiniones">Opiniones</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
+    <nav aria-label="Principal"><ul><li><a href="#servicios">Servicios</a></li><li><a href="#fotos">Fotos</a></li><li><a href="#lugar">El lugar</a></li><li><a href="#opiniones">Opiniones</a></li><li><a href="#contacto">Contacto</a></li></ul></nav>
     <a class="btn btn-main" href="https://wa.me/59899613845?text=Hola%2C%20quisiera%20consultar%20por%20la%20visita%20al%20Ca%C3%B1ad%C3%B3n%20de%20la%20Palma." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg><span>Consultar</span></a>
   </div>
 </header>
@@ -120,7 +145,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <a class="btn btn-main" href="https://wa.me/59899613845?text=Hola%2C%20quisiera%20consultar%20por%20la%20visita%20al%20Ca%C3%B1ad%C3%B3n%20de%20la%20Palma." target="_blank" rel="noopener"><svg class="i" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.2-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4 1 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.2-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>Consultar por WhatsApp</a>
         <a class="btn btn-ghost" href="#contacto"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg>Cómo llegar</a>
       </div>
-      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span><b>4,5</b> en Google (404 reseñas)</span></p></div><div class="visual" aria-hidden="true"><svg viewBox="0 0 240 200"><rect x="6" y="6" width="228" height="188" rx="20" fill="var(--soft)"/><circle cx="190" cy="48" r="18" fill="var(--accent)"/><path d="M6 170L70 70l30 40 36-72 98 132z" fill="var(--ink)"/><path d="M136 38v-14M130 28h12" stroke="var(--ink)" stroke-width="4" stroke-linecap="round"/><path d="M6 170l50-60 40 30 50-40 88 70v14H6z" fill="var(--accent)" opacity=".85"/><path d="M112 96c-4 20 6 30 2 52" fill="none" stroke="var(--surface)" stroke-width="6" stroke-linecap="round"/><ellipse cx="114" cy="156" rx="18" ry="5" fill="var(--surface)"/><path d="M40 182c20-10 40 8 60-2s40 8 60-2 40 8 60-2" fill="none" stroke="var(--ink)" stroke-width="3" stroke-dasharray="6 6" stroke-linecap="round"/></svg></div></div></section>
+      <p class="rating"><span class="stars" aria-hidden="true">★★★★★</span> <span><b>4,5</b> en Google (404 reseñas)</span></p></div><figure class="visual photo"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/5/5b/Ca%C3%B1adon_de_la_Palma.jpg/1280px-Ca%C3%B1adon_de_la_Palma.jpg" alt="Salto de agua del Cañadón de la Palma entre árboles" width="1280" height="853"><figcaption>Foto: AnnaKarinaGS, <a href="https://commons.wikimedia.org/wiki/File:Ca%C3%B1adon_de_la_Palma.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure></div></section>
 
 <section id="servicios">
   <div class="wrap">
@@ -132,6 +157,23 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
         <li><h3>La cumbre</h3><p>Subida hasta unos 430 metros, donde hay una cruz y vistas a Punta del Este.</p></li>
         <li><h3>Restaurante</h3><p>Abierto en vacaciones, fines de semana y feriados.</p></li>
     </ul>
+  </div>
+</section>
+
+
+<section id="fotos" class="gallery">
+  <div class="wrap">
+    <h2>Una muestra del recorrido</h2>
+    <p class="section-lead">Cascadas, piedra y monte nativo en la ladera de la Sierra de las Ánimas.</p>
+    <div class="grid">
+      <figure class="big"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/2/2c/Sierra_de_las_%C3%81nimas_-_panoramio_%284%29.jpg/1280px-Sierra_de_las_%C3%81nimas_-_panoramio_%284%29.jpg" alt="Cascada cayendo sobre rocas con musgo" loading="lazy"><figcaption><span class="cap">Cascadas en la sierra</span><br>Foto: Fabian Bandera, <a href="https://commons.wikimedia.org/wiki/File:Sierra_de_las_%C3%81nimas_-_panoramio_(4).jpg" target="_blank" rel="noopener">CC BY 3.0</a></figcaption></figure>
+      <figure class=""><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/7/76/Ca%C3%B1adon_3.jpg/960px-Ca%C3%B1adon_3.jpg" alt="Cañada angosta con agua corriendo entre paredes de musgo" loading="lazy"><figcaption><span class="cap">La cañada</span><br>Foto: GBHid, <a href="https://commons.wikimedia.org/wiki/File:Ca%C3%B1adon_3.jpg" target="_blank" rel="noopener">CC BY-SA 4.0</a></figcaption></figure>
+      <figure class=""><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a7/Sierra_de_las_%C3%81nimas_-_panoramio_%285%29.jpg/960px-Sierra_de_las_%C3%81nimas_-_panoramio_%285%29.jpg" alt="Pequeño salto de agua entre piedras y musgo" loading="lazy"><figcaption><span class="cap">Agua entre las piedras</span><br>Foto: Fabian Bandera, <a href="https://commons.wikimedia.org/wiki/File:Sierra_de_las_%C3%81nimas_-_panoramio_(5).jpg" target="_blank" rel="noopener">CC BY 3.0</a></figcaption></figure>
+      <figure class=""><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f3/Sierra_de_las_%C3%81nimas_-_panoramio_%281%29.jpg/960px-Sierra_de_las_%C3%81nimas_-_panoramio_%281%29.jpg" alt="Piedras apiladas en una cumbre con vista a la llanura y el mar" loading="lazy"><figcaption><span class="cap">Vistas desde la cumbre</span><br>Foto: Fabian Bandera, <a href="https://commons.wikimedia.org/wiki/File:Sierra_de_las_%C3%81nimas_-_panoramio_(1).jpg" target="_blank" rel="noopener">CC BY 3.0</a></figcaption></figure>
+      <figure class=""><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/c/c7/Sierra_de_las_%C3%81nimas_-_panoramio.jpg/960px-Sierra_de_las_%C3%81nimas_-_panoramio.jpg" alt="Caminante en la sierra con el horizonte de fondo" loading="lazy"><figcaption><span class="cap">Senderos de altura</span><br>Foto: Fabian Bandera, <a href="https://commons.wikimedia.org/wiki/File:Sierra_de_las_%C3%81nimas_-_panoramio.jpg" target="_blank" rel="noopener">CC BY 3.0</a></figcaption></figure>
+      <figure class="wide"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/0/0e/Sierra_de_las_Animas_%2845324359482%29.jpg/1280px-Sierra_de_las_Animas_%2845324359482%29.jpg" alt="Vista aérea de la Sierra de las Ánimas cubierta de monte verde" loading="lazy"><figcaption><span class="cap">La Sierra de las Ánimas desde el aire</span><br>Foto: Marcelo Campi, <a href="https://commons.wikimedia.org/wiki/File:Sierra_de_las_Animas_(45324359482).jpg" target="_blank" rel="noopener">CC BY-SA 2.0</a></figcaption></figure>
+      <figure class="wide"><img src="https://thumb.wikimedia.org/wikipedia/commons/thumb/f/f4/Sierra_de_las_%C3%81nimas_-_panoramio_%283%29.jpg/960px-Sierra_de_las_%C3%81nimas_-_panoramio_%283%29.jpg" alt="Pared de piedra cubierta de musgo junto al sendero" loading="lazy"><figcaption><span class="cap">Paredes de piedra y musgo</span><br>Foto: Fabian Bandera, <a href="https://commons.wikimedia.org/wiki/File:Sierra_de_las_%C3%81nimas_-_panoramio_(3).jpg" target="_blank" rel="noopener">CC BY 3.0</a></figcaption></figure>
+    </div>
   </div>
 </section>
 
@@ -170,6 +212,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px}
       <h2>Cómo llegar</h2>
       <div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M12 21s-7-6.2-7-11.5a7 7 0 0 1 14 0C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></svg><div>Ruta 60 km 28, Maldonado<br><a href="https://www.google.com/maps/place/Ca%C3%B1ad%C3%B3n+De+La+Palma/data=!4m2!3m1!1s0x95754d8a6002f31b:0x104977efdbccf3cd" target="_blank" rel="noopener">Abrir en Google Maps</a></div></div>
       <div class="row"><svg class="i" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M5 4h4l2 5-2.5 1.5a11 11 0 0 0 5 5L15 13l5 2v4a2 2 0 0 1-2 2A16 16 0 0 1 3 6a2 2 0 0 1 2-2"/></svg><div><a href="tel:+59899613845">099 613 845</a> o <a href="https://wa.me/59899613845?text=Hola%2C%20quisiera%20consultar%20por%20la%20visita%20al%20Ca%C3%B1ad%C3%B3n%20de%20la%20Palma." target="_blank" rel="noopener">WhatsApp</a></div></div>
+      
       
       <table class="hours"><caption>Horarios</caption><tr><th scope="row">Lunes</th><td>8:00 a 14:00</td></tr><tr><th scope="row">Martes</th><td>8:00 a 14:00</td></tr><tr><th scope="row">Miércoles</th><td>8:00 a 14:00</td></tr><tr><th scope="row">Jueves</th><td>8:00 a 14:00</td></tr><tr><th scope="row">Viernes</th><td>8:00 a 14:00</td></tr><tr><th scope="row">Sábado</th><td>8:00 a 14:00</td></tr><tr><th scope="row">Domingo</th><td>8:00 a 14:00</td></tr></table>
     </div>
